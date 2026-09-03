@@ -12,25 +12,31 @@ int main(){
   while (playing) {
     srand(time(NULL));
     int number = rand() % 101;
-
+    int guesses = 0;
     cin >> guess;
     while (guess != number){
+      guesses+=1;
       if (guess > number){
-        cout << "Too high: " << guess << endl;
+        cout << "Too high. " << guesses << " guesses so far." << endl;
       }
       else {
-        cout << "Too low: " << guess << endl;
+       cout << "Too low. " << guesses << "guesses so far." << endl;
       }
       cin >> guess;
     }
     char play_again = 'n';
     cout << "You won! Would you like to play again? (y/n)" << endl;
-
+   
     cin >> play_again;
     if (play_again == 'y'){
         playing = true;
-        continue
+        srand(time(NULL));
+        number = rand() % 101;
     }
-  } 
-    return 0;
+    else{
+    playing = false;
+    }
+  }
+  return 0;
+
 }
