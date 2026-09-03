@@ -23,8 +23,14 @@ int main(){
       }
       cin >> guess;
     }
+    char play_again = 'n';
     cout << "You won! Would you like to play again? (y/n)" << endl;
-    bool playing = false;
-  }
 
+    cin >> play_again;
+    if (play_again == 'y'){
+        playing = true;
+        continue
+    }
+  } 
+    return 0;
 }
