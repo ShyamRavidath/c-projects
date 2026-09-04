@@ -1,6 +1,13 @@
 #include <iostream>
 
 using namespace std;
+/*
+  (im assuming this is the "heading" comment
+  Name: Shyam Ravidath
+  Assignment: Guessing Game
+  Date: 9/3/26
+*/
+
 /* Three rules:
    1. No global variables
    2. No strings
