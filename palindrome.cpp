@@ -6,9 +6,9 @@ using namespace std;
 
 int main()
 {
-  char str[80];
-  char str2[80];
-  cin.get(str, 80);
+  char str[81];
+  char str2[81];
+  cin.get(str, 81);
   cin.get();
   int count = 0;
   int len = strlen(str);
@@ -17,24 +17,19 @@ int main()
     if (ispunct(str[i-1]) == 0 && str[i-1] != ' '){ 
       if (str[i-1] != '\0'){
 	cout << str[i-1] << endl;
-	str2[count] = str[i-1];
+	str2[count] = tolower(str[i-1]);
 	count++;
     }
     }
   }
+  str2[count] = '\0';
 
   int ct = 0;
 
-  // po.op
-  // p = p
-  // o = o
-  // 
-  for (int i = 0; i < len; i++){ //check if now, each char in reversed spot, is the same
-    if (ispunct(str[i]) == 0 && str[i] != ' '){
+  for (int i = 0; i < count / 2; i++){ //check if now, each char in reversed spot, is the same
       if (str2[i] == str[i]){
 	ct++;
       }
-    }
     
   }
 
