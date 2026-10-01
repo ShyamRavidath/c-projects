@@ -5,7 +5,8 @@ using namespace std;
 void printBoard(char board[][3]);
 bool checkLegal(int row, int col, char board[][3]);
 bool checkWin(char player, char board[][3]);
-bool checkTie(char board[][3]);
+bool checkTie(char board[0][3]);
+
 
 void switchPlayer(char player);
 void makeMove(int row, int col, char board[][3], char player);
@@ -43,22 +44,18 @@ int main()
       printBoard(board);
       bool win = checkWin(player,board);
       bool tie = checkTie(board);
-      
-      
       if (win)
-      {
+
+	{
 	cout << "Player " << player << " wins!" << endl;
 	playing = false;
       }
+
       else if (tie)
       {
-	cout << "This game was a tie" << endl;
+	cout << "This game was a tie." << endl;
 	playing = false;
       }
-
-
-
-
       
       if (player == 'x')
       {
@@ -106,14 +103,14 @@ bool checkTie(char board[][3])
   {
     for (int j = 0; j<3; j++)
     {
-      if (board[i][j] == ' ')
+      if (board[i][j] != player)
       {
 	count++;
       }
     }
   }
 
-  if (count == 0)
+  if (count == 9)
   {
     return true;
   }
