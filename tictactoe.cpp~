@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+int move(int col, int row);
+
+int main()
+{
+  int board[9] = [0,0,0];
+  bool playing = true;
+  
+  cout << board << endl;
+  return 0;
+}
+
+void move(int col, int row, int board)
+{
+  int pos = col*row;
+  board[pos] = 1;
+}  
