@@ -1,59 +1,42 @@
 #include <iostream>
-#include <cstring
+#include <cstring>
+#include <vector>
 
 using namespace std;
 
-struct S {
-  //char fname[10];
-  //char lname[10];
-  //int id;
-  //float gpa;
-
-  int a = 5;
-  int b = 7;
+struct Student {
+  char studentname[10];
+  int id;
+  float gpa;
 };
 
+void add(Student *current);
 
 int main(){
-  Student myStruct;
-  S* ptrStruct;
-  ptrStruct = new S();
-  byValueS(myStruct);
-  byValueS(*ptrStruct);
-  byRefS(myStruct);
-  byRefS(*ptrStruct);
+  Student mystudent;
+  Student *ptr = &mystudent;
 
-  S* originalStruct = &myStruct;
-  byPtrValS(originalStruct);
-  byPtrRefS(ptrStruct);
-  cout << "Terminated" << endl;
-}
+  
+ 
+  // vector<Student> studentVector;
 
-void byValueS(S newS) {
-  newS.a = 10;
-  newS.b = 15;
-}
+  // studentVector.push_back({"bob",1234,3.3});
 
-void byRefS(S &newS) {
-  newS.a = 20;
-  newS.b = 25;
-}
+  cin >> ptr->studentname;
+  
+  add(ptr);
+  
+  cout << mystudent.gpa << endl;
 
-void byPtrValS(S* newPtr) {
-  newPtr->a = 30;
-  newPtr->b = 35;
-  newPtr = new S();
-  newPtr->a = 40;
-  newPtr->b = 45;
-}
+}  
 
-void byPtrRefS(S* &newPtr) {
-  newPtr->a = 50;
-  newPtr->b = 55;
-  newPtr = new S();
-  newPtr->a = 60;
-  newPtr->b = 60;
-}
+void add(Student *current) {
+  cout << "enter id: " << endl;
+  cin >> current->id;
+
+  cout << "enter gpa: " << endl;
+  cin >> current->gpa;
+}  
 
 
   
