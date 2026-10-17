@@ -7,10 +7,11 @@ using namespace std;
 // student info
 struct Student {
   char first[50];
-  char last[5];
+  char last[50];
   int id;
   float gpa;
 };
+
 
 void add(vector<Student*>& list) {
   
@@ -19,58 +20,45 @@ void add(vector<Student*>& list) {
   cin >> s->first;
   cout << "Last name: ";
   cin >> s->last;
-  cout << "ID:  " << endl;
+  cout << "ID: " << endl;
   cin >> s->id;
-  cout << "GPA:  " << endl;
+  cout << "GPA: " << endl;
   cin >> s->gpa;
 
   list.push_back(s); //add new student
 }  
 
-void print(vector<Student*>& list) { // THIS WORKS!! - need to try iterator next
-  for (int i = 0; i < (int)list.size(); i++) {
-    Student* currentStudent = list[i];
+void print(vector<Student*>& list) {
+  for (vector<Student*>::iterator it = list.begin(); it != list.end(); ++it) {
 
-
-    //current pointer extraction
-    char* firstName = currentStudent->first; 
-    char* lastName  = currentStudent->last;
-    int studentId   = currentStudent->id;
-    float studentGpa = currentStudent->gpa;
-
-
-    //rounding math
-    float multiplied = studentGpa * 100.0f;
-    float rounded = multiplied + 0.5f;
-    int totalCents = (int)rounded;
-
-    int wholePart = totalCents / 100;
-    int decimalPart = totalCents % 100;
-
-    // student info output
-    cout << firstName << " " << lastName << ", " << studentId << ", ";
-
-
-    // two digit formatting for gpa
-    cout << wholePart << ".";
-    if (decimalPart < 10) {
-      cout << "0"; // leading 0 for nums
-    }
-
-    cout << decimalPart;
+    // turn Gpa into whole cents
+    int cents = (int)((*it)->gpa * 100 + 0.5);
     
-    cout << endl;
+    cout << (*it)->first << " " << (*it)->last << ", " << (*it)->id << ", ";
+    
+    cout << cents / 100 << "."; // dec point
+    if (cents % 100 < 10) {
+      cout << "0"; // pad, need to diff .05 from 0.5
+    }  
+    cout << cents % 100 << endl;
   }
-  
 }
 
 
-void del(vector<Student*>& list) { // iterator attempt
+
+void del(vector<Student*>& list) {
   int id;
-  cout << "Student ID to delete: ";
+  cout << "ID to delete: ";
   cin >> id;
   
-  cout << "No student with that ID." << endl;
+  for (vector<Student*>::iterator it = list.begin(); it != list.end(); ++it) {
+    if ((*it)->id == id) {
+      delete *it;        // remove struct
+      list.erase(it);    // remove pointer from vector
+      return;            // stop
+    }
+  }
+  cout << "No student with that id" << endl;
 }
 
 
