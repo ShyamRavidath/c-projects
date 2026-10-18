@@ -4,6 +4,13 @@
 
 using namespace std;
 
+/*
+  Name: Shyam Ravidath
+  Assignment: Studentlist
+  Date: 10/16/26
+*/
+
+
 // student info
 struct Student {
   char first[50];
