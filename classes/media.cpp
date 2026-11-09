@@ -1,16 +1,26 @@
 #include <iostream>
 #include "media.h"
+#include <cstring>
 using namespace std;
 
-media::media() {
+media::media(char *t, int y) {
   cout << "Media (Parent) Constructor" << endl;
-  id = 0;
+  strcpy(title,t);
+  year = y;
+  
+}
+media::~media() {
+  cout << "Media destructor" << endl;
 }
 
-int media::getid() {
-  return id;
+char* media::getTitle() {
+  return title;
 }
 
-int media::myfunction() {
-  return 100;
+int media::getYear() {
+  return year;
+}
+
+void media::print() {
+  cout << title << " (" << year << ")" << endl;
 }
