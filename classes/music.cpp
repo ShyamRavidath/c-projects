@@ -3,18 +3,29 @@
 #include "music.h"
 using namespace std;
 
-music::music() {
+music::music(char* t, int y, char *a, int d, char* pub) : media(t,y) {
   cout << "Music (child) constructor" << endl;
-  id = 1;
-  n = 0;
-  publisher[] = "None";
+  strcpy(publisher,pub);
+  strcpy(artist,a);
+  duration = d;
+  
 }
-void music::setPub(char* pub[]) {
-  strcpy(publisher[],pub[]);
+int music::getDuration() {
+  return duration;
 }
-void music::getPub() {
-  return publisher[];
+
+char* music::getPublisher() {
+  return publisher;
 }
-int music::myfunction() {
-  return 200;
+
+char* music::getArtist() {
+  return artist;
 }
+
+
+void videogame::print() {
+  media::print();
+  cout << "Artist: " << artist << ", Duration: " << duration << ", Publisher: " << publisher << endl;
+}
+
+

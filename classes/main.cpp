@@ -9,19 +9,12 @@ using namespace std;
 void add(vector<media*>& db);
 int main() {
   vector <media*> db;
-
-
   media *m = new videogame("Zelda", 2017, "Nintendo", 10);
-  m->print();
-  m->getType();
-
+  db.push_back(m);
   add(db);
   for (int i = 0; i < db.size(); i++) {
     db[i]->print();
   }
-
-  
-
   
 
   return 0;
@@ -40,8 +33,7 @@ void add(vector<media*>& db) {
   cin.ignore();
   cout << "Type: ";
   cin.getline(typ,20);
-
-  if (strcmp(tolower(typ), "videogame") == 0){
+  if (strcmp(typ, "videogame") == 0){
     cout << "Publisher: ";
     cin.getline(pub, 100);
     cout << "Rating: ";
