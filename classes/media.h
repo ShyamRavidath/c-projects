@@ -10,6 +10,7 @@ class media {
   char* getTitle();
   int getYear();
   virtual void print();
+  virtual const char* getType();
   virtual ~media();
  protected:
   char title[100];

@@ -10,6 +10,7 @@ class videogame : public media {
   int getRating();
   char* getPublisher();
   void print();
+  const char* getType();
  protected:
   char publisher[50];
   int rating;

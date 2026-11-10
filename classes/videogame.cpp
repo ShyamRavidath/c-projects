@@ -7,6 +7,7 @@ videogame::videogame(char* t, int y, char* pub, int r) : media(t,y) {
   cout << "Video (Child) Constructor" << endl;
   strcpy(publisher,pub);
   rating = r;
+ 
 }
 
 int videogame::getRating() {
@@ -18,5 +19,10 @@ char* videogame::getPublisher() {
 }
 void videogame::print() {
   media::print();        
-  cout << "  Publisher: " << publisher << ", Rating: " << rating << endl;
+  cout << "Publisher: " << publisher << ", Rating: " << rating << endl;
 }
+
+const char* videogame::getType() {
+  return "videogame";
+}
+  
