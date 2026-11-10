@@ -3,8 +3,10 @@
 #include <vector>
 #include "videogame.h"
 #include <cstring>
+#include <cctype>
 using namespace std;
 
+void add(vector<media*>& db);
 int main() {
   vector <media*> db;
 
@@ -13,10 +15,12 @@ int main() {
   m->print();
   m->getType();
 
-  add(vector<media*>& db);
-  cout << db;
+  add(db);
+  for (int i = 0; i < db.size(); i++) {
+    db[i]->print();
+  }
 
-  delete m;
+  
 
   
 
@@ -26,20 +30,23 @@ int main() {
 void add(vector<media*>& db) {
   char title[100];
   char pub[50];
-  char type[20];
+  char typ[20];
   int year, rating;
 
   cout << "Title: ";
   cin.getline(title, 100);
   cout << "Year: ";
   cin >> year;
+  cin.ignore();
   cout << "Type: ";
-  cin.getline(type,20);
-  if (strcmp(type,"videogame")){
+  cin.getline(typ,20);
+
+  if (strcmp(tolower(typ), "videogame") == 0){
     cout << "Publisher: ";
-    cin.getline(title, 100);
+    cin.getline(pub, 100);
     cout << "Rating: ";
     cin >> rating;
+    cin.ignore();
     db.push_back(new videogame(title, year, pub, rating));
   }
 }
