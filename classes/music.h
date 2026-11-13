@@ -4,11 +4,17 @@ using namespace std;
 
 class music : public media {
  public:
-  music();
-  void setN();
-  int getN();
-  int myfunction();
+  music(char *t, int y, char *a, int d, char* pub);
+  int getDuration();
+  char* getPublisher();
+  char* getArtist();
+  void print();
+  const char* getType();
+  
  protected:
-  int n;
+  int duration;
+  char publisher[100];
+  char artist[100];
+  
 };
 

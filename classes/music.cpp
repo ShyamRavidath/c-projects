@@ -8,7 +8,7 @@ music::music(char* t, int y, char *a, int d, char* pub) : media(t,y) {
   strcpy(publisher,pub);
   strcpy(artist,a);
   duration = d;
-  
+xs 
 }
 int music::getDuration() {
   return duration;
@@ -22,10 +22,14 @@ char* music::getArtist() {
   return artist;
 }
 
-
-void videogame::print() {
+void music::print() {
   media::print();
   cout << "Artist: " << artist << ", Duration: " << duration << ", Publisher: " << publisher << endl;
 }
+
+const char* music::getType() {
+  return "music";
+}
+ 
 
 
