@@ -28,11 +28,13 @@ int main() {
 
   media *mu = new music("element", 2017, "popsmoke", 100, "billboard");
   db.push_back(mu);
-
+  
   for (int i = 0; i < db.size(); i++) {
     db[i]->print();
   }
-}
+
+
+  return 0;
 
 void add(vector<media*>& db) {
   char title[100];
@@ -81,7 +83,10 @@ void search(vector<media*>& db) { // search by year
 void del(vector<media*>& db) { // search by year and del
   int yr;
   char delo[2];
+
   int i = 0;
+
+
   cout << "Enter year: " << endl;
   cin >> yr;
   cin.ignore();
@@ -102,6 +107,7 @@ void del(vector<media*>& db) { // search by year and del
     else {
       cout << "No results for that year" << endl;
     }
+
     i++;
   }
 
