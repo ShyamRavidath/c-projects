@@ -1,6 +1,8 @@
 #include <iostream>
 #include "media.h"
 using namespace std;
+#ifndef MUSIC_H
+#define MUSIC_H
 
 class music : public media {
  public:
@@ -17,4 +19,5 @@ class music : public media {
   char artist[100];
   
 };
+#endif
 

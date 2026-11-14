@@ -8,7 +8,6 @@ music::music(char* t, int y, char *a, int d, char* pub) : media(t,y) {
   strcpy(publisher,pub);
   strcpy(artist,a);
   duration = d;
-xs 
 }
 int music::getDuration() {
   return duration;
